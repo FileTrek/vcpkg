@@ -1,0 +1,4 @@
+Source: avro-cpp
+Version: 1.9.0-SNAPSHOT
+Description: Apache Avro is a data serialization system
+Build-Depends: boost-crc, boost-filesystem, boost-format, boost-iostreams, boost-program-options, boost-ptr-container, boost-random, boost-regex, boost-system, boost-test
