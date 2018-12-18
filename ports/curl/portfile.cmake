@@ -11,6 +11,7 @@ vcpkg_from_github(
         0002_fix_uwp.patch
         0003_fix_libraries.patch
         0004_nghttp2_staticlib.patch
+        0005_mbedtls.patch
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "static" CURL_STATICLIB)

@@ -1,0 +1,13 @@
+diff --git a/lib/vtls/mbedtls.c b/lib/vtls/mbedtls.c
+index d7759dc84..c862f744a 100644
+--- a/lib/vtls/mbedtls.c
++++ b/lib/vtls/mbedtls.c
+@@ -577,6 +577,8 @@ mbed_connect_step2(struct connectdata *conn,
+ 
+   ret = mbedtls_ssl_get_verify_result(&BACKEND->ssl);
+ 
++  if(!SSL_CONN_CONFIG(verifyhost))
++    ret &= ~MBEDTLS_X509_BADCERT_CN_MISMATCH;   /* Ignore hostname errors */
+   if(ret && SSL_CONN_CONFIG(verifypeer)) {
+     if(ret & MBEDTLS_X509_BADCERT_EXPIRED)
+       failf(data, "Cert verify failed: BADCERT_EXPIRED");
